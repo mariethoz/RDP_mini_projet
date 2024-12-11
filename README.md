@@ -1,5 +1,3 @@
-Bien sûr, voici une description de projet pour la gestion des repas de Noël dans un restaurant :
-
 ### Titre du projet
 RDB Restaurant
 
