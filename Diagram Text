@@ -1,4 +1,4 @@
-CODE DIAGRAM :
+CODE DIAGRAM : (https://dbdiagram.io)
 
 Table "salle" {
   "salle_id" serial [pk, increment]
