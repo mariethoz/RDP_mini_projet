@@ -3,7 +3,7 @@ CREATE TABLE salle (
     name VARCHAR(255)
 );
 
-CREATE TABLE table (
+CREATE TABLE table_a_manger (
     id_table SERIAL PRIMARY KEY,
     id_salle INT,
     taille INT
