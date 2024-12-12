@@ -1,6 +1,7 @@
 CODE DIAGRAM : (https://dbdiagram.io)
 
 
+
 Table "salle" {
   "salle_id" serial [pk, increment]
   "name" varchar(255)
@@ -20,7 +21,7 @@ Table "personnel" {
 }
 
 Table "personnel_table" {
-  "id" serial [pk, increment]
+  "id_personnel_table" serial [pk, increment]
   "personnel_id" int
   "tabel_id" int
 }
@@ -31,7 +32,7 @@ Table "personnel_type" {
 }
 
 Table "table_res" {
-  "id" serial [pk, increment]
+  "id_table_res" serial [pk, increment]
   "table_id" int
   "res_id" int
 }
@@ -50,7 +51,7 @@ Table "client" {
 }
 
 Table "menu_carte" {
-  "id" serial [pk, increment]
+  "id_menu_carte" serial [pk, increment]
   "nom" varchar
   "id_marge" int
 }
@@ -62,19 +63,19 @@ Table "recette" {
 }
 
 Table "creation_menu_carte" {
-  "id" serial [pk, increment]
+  "id_creation_menu_carte" serial [pk, increment]
   "id_recette" int 
   "id_menu" int
 }
 
 Table "prend_menu" {
-  "id" serial [pk, increment]
+  "id_prend_menu" serial [pk, increment]
   "id_table" int
   "id_menu" int
 }
 
 Table "creation_recette" {
-  "id" serial [pk, increment]
+  "id_creation_recette" serial [pk, increment]
   "id_recette" int
   "id_ingredient" int
   "quantite" float
@@ -82,13 +83,13 @@ Table "creation_recette" {
 }
 
 Table "ingredient" {
-  "id" serial [pk, increment]
+  "id_ingredient" serial [pk, increment]
   "nom" varchar
   "prix_unitaire" float
 }
 
 Table "marge" {
-  "id" serial [pk, increment]
+  "id_marge" serial [pk, increment]
   "valeur" float
 }
 
@@ -107,16 +108,16 @@ Ref: "personnel"."personnel_id" < "personnel_table"."personnel_id"
 
 Ref: "client"."client_id" < "reservation"."client_id"
 
-Ref: "menu_carte"."id" < "creation_menu_carte"."id_menu"
+Ref: "menu_carte"."id_menu_carte" < "creation_menu_carte"."id_menu"
 
 Ref: "creation_menu_carte"."id_recette" < "recette"."id"
 
 Ref: "prend_menu"."id_table" < "table"."table_id"
 
-Ref: "prend_menu"."id_menu" < "menu_carte"."id"
+Ref: "prend_menu"."id_menu" < "menu_carte"."id_menu_carte"
 
-Ref: "menu_carte"."id_marge" < "marge"."id"
+Ref: "menu_carte"."id_marge" < "marge"."id_marge"
 
 Ref: "creation_recette"."id_recette" < "recette"."id"
 
-Ref: "creation_recette"."id_ingredient" < "ingredient"."id"
+Ref: "creation_recette"."id_ingredient" < "ingredient"."id_ingredient"
