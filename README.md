@@ -33,3 +33,7 @@ A l'approche des Fêtes de Noël on fait souvent une réservation pour un repas 
 
 ### Décrivez si vous avez déjà des données à disposition ou facilement accessibles
 Non, on les génèrera avec GPT et des recherches internet.
+
+
+### Schéma RDB
+<img width="1161" alt="Schema 1 0" src="https://github.com/user-attachments/assets/6eb4da26-1c6e-4bb2-a423-e5a8a597551b" />
