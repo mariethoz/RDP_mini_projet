@@ -6,7 +6,7 @@ INSERT INTO salle (name) VALUES
 ('Salle P'), ('Salle Q'), ('Salle R'), ('Salle S'), ('Salle T');
 
 -- table
-INSERT INTO table (salle_id, taille) VALUES 
+INSERT INTO table_a_manger (id_salle, taille) VALUES 
 (1, 4), (1, 6), (2, 4), (2, 6), (3, 4), 
 (3, 6), (4, 4), (4, 6), (5, 4), (5, 6), 
 (6, 4), (6, 6), (7, 4), (7, 6), (8, 4), 
@@ -23,7 +23,7 @@ INSERT INTO personnel (nom, prenom, type) VALUES
 ('Blanc', 'Leo', 1), ('Guerin', 'Camille', 2);
 
 -- personnel_table
-INSERT INTO personnel_table (personnel_id, tabel_id) VALUES 
+INSERT INTO personnel_table (id_personnel, id_table) VALUES 
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), 
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), 
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), 
@@ -37,14 +37,14 @@ INSERT INTO personnel_type (type) VALUES
 ('Assistant'), ('Stagiaire'), ('Directeur'), ('Responsable'), ('Agent');
 
 -- table_res
-INSERT INTO table_res (table_id, res_id) VALUES 
+INSERT INTO table_res (id_table, id_reservation) VALUES 
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), 
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), 
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), 
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
 
 -- reservation
-INSERT INTO reservation (client_id, res_date, nb_personne) VALUES 
+INSERT INTO reservation (id_client, res_date, nb_personne) VALUES 
 (1, '2024-12-01', 4), (2, '2024-12-02', 6), (3, '2024-12-03', 4), 
 (4, '2024-12-04', 6), (5, '2024-12-05', 4), (6, '2024-12-06', 6), 
 (7, '2024-12-07', 4), (8, '2024-12-08', 6), (9, '2024-12-09', 4), 
@@ -72,14 +72,14 @@ INSERT INTO menu_carte (nom, id_marge) VALUES
 ('Menu Prestige', 13), ('Menu Festif', 14), ('Menu Gourmet', 15), 
 ('Menu Classique', 16), ('Menu Épicurien', 17), ('Menu Raffiné', 18), 
 ('Menu Convivial', 19), ('Menu Élégant', 20), 
-('Salade César', 21), ('Soupe à l\'oignon', 22), ('Quiche Lorraine', 23), 
+('Salade César', 21), ('Soupe à l oignon', 22), ('Quiche Lorraine', 23), 
 ('Salade Niçoise', 24), ('Terrine de foie gras', 25), ('Boeuf Bourguignon', 26), 
 ('Coq au vin', 27), ('Ratatouille', 28), ('Poulet Basquaise', 29), 
 ('Cassoulet', 30), ('Tarte Tatin', 31), ('Crème brûlée', 32), 
 ('Mousse au chocolat', 33), ('Île flottante', 34), ('Profiteroles', 35);
 
 -- prend_menu
-INSERT INTO prend_menu (id_table, id_menu) VALUES 
+INSERT INTO prend_menu (id_table, id_menu_carte) VALUES 
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), 
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), 
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), 
@@ -122,7 +122,7 @@ INSERT INTO ingredient (nom, prix_unitaire) VALUES
 ('Thon', 5.0), ('Haricots verts', 2.0), ('Olives', 1.5), 
 ('Poulet', 8.0), ('Poivrons', 2.0), ('Tomates', 1.5), 
 ('Oeufs', 1.5), ('Lait', 1.0), ('Sucre', 1.0), 
-('Foie gras', 15.0), ('Gelée', 2.0), ('Pain d\'épices', 3.0), 
+('Foie gras', 15.0), ('Gelée', 2.0), ('Pain d épices', 3.0), 
 ('Haricots blancs', 2.0), ('Saucisses', 4.0), ('Confit de canard', 10.0), 
 ('Choux', 1.5), ('Crème pâtissière', 2.0), ('Chocolat', 3.0), 
 ('Poisson', 10.0), ('Bouillon', 2.0), ('Crème', 2.0), 
@@ -137,7 +137,7 @@ INSERT INTO marge (valeur) VALUES
 (85.0), (90.0), (95.0), (100.0), (105.0);
 
 -- Menus complets (Entrée, Plat, Dessert)
-INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES 
+INSERT INTO creation_menu_carte (id_recette, id_menu_carte) VALUES 
 (1, 1), (2, 1), (3, 1),  -- Menu Midi: Salade César, Boeuf Bourguignon, Tarte Tatin
 (4, 2), (5, 2), (6, 2),  -- Menu Gourmand: Soupe à l'oignon, Coq au vin, Crème brûlée
 (7, 3), (8, 3), (9, 3),  -- Menu de Noël: Quiche Lorraine, Ratatouille, Mousse au chocolat
@@ -145,7 +145,7 @@ INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES
 (13, 5), (14, 5), (15, 5);  -- Menu Plaisir: Terrine de foie gras, Cassoulet, Profiteroles
 
 -- Menus partiels (seulement Entrée)
-INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES 
+INSERT INTO creation_menu_carte (id_recette, id_menu_carte) VALUES 
 (1, 21),  -- Salade César
 (4, 22),  -- Soupe à l'oignon
 (7, 23),  -- Quiche Lorraine
@@ -153,7 +153,7 @@ INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES
 (13, 25);  -- Terrine de foie gras
 
 -- Menus partiels (seulement Plat)
-INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES 
+INSERT INTO creation_menu_carte (id_recette, id_menu_carte) VALUES 
 (2, 26),  -- Boeuf Bourguignon
 (5, 27),  -- Coq au vin
 (8, 28),  -- Ratatouille
@@ -161,10 +161,9 @@ INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES
 (14, 30);  -- Cassoulet
 
 -- Menus partiels (seulement Dessert)
-INSERT INTO creation_menu_carte (id_recette, id_menu) VALUES 
+INSERT INTO creation_menu_carte (id_recette, id_menu_carte) VALUES 
 (3, 31),  -- Tarte Tatin
 (6, 32),  -- Crème brûlée
 (9, 33),  -- Mousse au chocolat
 (12, 34),  -- Île flottante
 (15, 35);  -- Profiteroles
-
