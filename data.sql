@@ -167,3 +167,25 @@ INSERT INTO creation_menu_carte (id_recette, id_menu_carte) VALUES
 (9, 33),  -- Mousse au chocolat
 (12, 34),  -- Île flottante
 (15, 35);  -- Profiteroles
+
+INSERT INTO recette (nom, type) VALUES 
+('Salade César', 'Entrée'), 
+('Boeuf Bourguignon', 'Plat'), 
+('Tarte Tatin', 'Dessert'), 
+('Soupe à l\'oignon', 'Entrée'), 
+('Coq au vin', 'Plat'), 
+('Crème brûlée', 'Dessert'), 
+('Quiche Lorraine', 'Entrée'), 
+('Ratatouille', 'Plat'), 
+('Mousse au chocolat', 'Dessert'), 
+('Salade Niçoise', 'Entrée'), 
+('Poulet Basquaise', 'Plat'), 
+('Île flottante', 'Dessert'), 
+('Terrine de foie gras', 'Entrée'), 
+('Cassoulet', 'Plat'), 
+('Profiteroles', 'Dessert'), 
+('Soupe de poisson', 'Entrée'), 
+('Magret de canard', 'Plat'), 
+('Tarte au citron', 'Dessert'), 
+('Salade de chèvre chaud', 'Entrée'), 
+('Blanquette de veau', 'Plat');
