@@ -2,12 +2,13 @@ CODE DIAGRAM : (https://dbdiagram.io)
 
 
 
+
 Table "salle" {
   "salle_id" serial [pk, increment]
   "name" varchar(255)
 }
 
-Table "table" {
+Table "table_a_manger" {
   "table_id" serial [pk, increment]
   "salle_id" int
   "taille" int(10)
@@ -96,13 +97,13 @@ Table "marge" {
 
 Ref: "personnel_type"."personnel_type_id" < "personnel"."type"
 
-Ref: "table_res"."table_id" < "table"."table_id"
+Ref: "table_res"."table_id" < "table_a_manger"."table_id"
 
 Ref: "table_res"."res_id" < "reservation"."res_id"
 
-Ref: "personnel_table"."tabel_id" < "table"."table_id"
+Ref: "personnel_table"."tabel_id" < "table_a_manger"."table_id"
 
-Ref: "table"."salle_id" < "salle"."salle_id"
+Ref: "table_a_manger"."salle_id" < "salle"."salle_id"
 
 Ref: "personnel"."personnel_id" < "personnel_table"."personnel_id"
 
@@ -112,7 +113,7 @@ Ref: "menu_carte"."id_menu_carte" < "creation_menu_carte"."id_menu"
 
 Ref: "creation_menu_carte"."id_recette" < "recette"."id"
 
-Ref: "prend_menu"."id_table" < "table"."table_id"
+Ref: "prend_menu"."id_table" < "table_a_manger"."table_id"
 
 Ref: "prend_menu"."id_menu" < "menu_carte"."id_menu_carte"
 
