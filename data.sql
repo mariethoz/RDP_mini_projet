@@ -172,7 +172,7 @@ INSERT INTO recette (nom, type) VALUES
 ('Salade César', 'Entrée'), 
 ('Boeuf Bourguignon', 'Plat'), 
 ('Tarte Tatin', 'Dessert'), 
-('Soupe à l\'oignon', 'Entrée'), 
+('Soupe à l_oignon', 'Entrée'), 
 ('Coq au vin', 'Plat'), 
 ('Crème brûlée', 'Dessert'), 
 ('Quiche Lorraine', 'Entrée'), 
