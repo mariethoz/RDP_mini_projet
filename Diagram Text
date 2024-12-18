@@ -3,6 +3,7 @@ CODE DIAGRAM : (https://dbdiagram.io)
 
 
 
+
 Table "salle" {
   "salle_id" serial [pk, increment]
   "name" varchar(255)
@@ -12,24 +13,6 @@ Table "table_a_manger" {
   "table_id" serial [pk, increment]
   "salle_id" int
   "taille" int(10)
-}
-
-Table "personnel" {
-  "personnel_id" serial [pk, increment]
-  "nom" varchar
-  "prenom" varchar
-  "type" int
-}
-
-Table "personnel_table" {
-  "id_personnel_table" serial [pk, increment]
-  "personnel_id" int
-  "tabel_id" int
-}
-
-Table "personnel_type" {
-  "personnel_type_id" serial [pk, increment]
-  "type" varchar
 }
 
 Table "table_res" {
@@ -95,17 +78,11 @@ Table "marge" {
 }
 
 
-Ref: "personnel_type"."personnel_type_id" < "personnel"."type"
-
 Ref: "table_res"."table_id" < "table_a_manger"."table_id"
 
 Ref: "table_res"."res_id" < "reservation"."res_id"
 
-Ref: "personnel_table"."tabel_id" < "table_a_manger"."table_id"
-
 Ref: "table_a_manger"."salle_id" < "salle"."salle_id"
-
-Ref: "personnel"."personnel_id" < "personnel_table"."personnel_id"
 
 Ref: "client"."client_id" < "reservation"."client_id"
 
