@@ -5,6 +5,7 @@ CODE DIAGRAM : (https://dbdiagram.io)
 
 
 
+
 Table "salle" {
   "salle_id" serial [pk, increment]
   "nom" varchar(10) [not null]
@@ -39,7 +40,7 @@ Table "carte" {
   "id_carte" serial [pk, increment]
   "nom" varchar(20) [not null]
   "id_marge" int
-  "is_valid" bool [not null]
+  "valide" bool [not null]
 }
 
 Table "recette" {
@@ -50,7 +51,7 @@ Table "recette" {
 
 Table "subdivision_carte" {
   "id_sub_carte" serial [pk, increment]
-  "id_menu" int
+  "id_carte" int
   "id_recette" int 
 }
 
@@ -70,7 +71,7 @@ Table "creation_recette" {
 
 Table "ingredient" {
   "id_ingredient" serial [pk, increment]
-  "nom" varchar [not null]
+  "nom" varchar(20) [not null]
   "prix_unitaire" float [not null]
 }
 
@@ -88,7 +89,7 @@ Ref: "table_a_manger"."salle_id" < "salle"."salle_id"
 
 Ref: "client"."client_id" < "reservation"."client_id"
 
-Ref: "carte"."id_carte" < "subdivision_carte"."id_menu"
+Ref: "carte"."id_carte" < "subdivision_carte"."id_carte"
 
 Ref: "subdivision_carte"."id_recette" < "recette"."id"
 
