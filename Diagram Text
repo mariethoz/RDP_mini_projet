@@ -38,14 +38,14 @@ Table "client" {
 
 Table "carte" {
   "id_carte" serial [pk, increment]
-  "nom" varchar(20) [not null]
+  "nom" varchar(40) [not null]
   "id_marge" int
   "valide" bool [not null]
 }
 
 Table "recette" {
   "id" serial [pk, increment]
-  "nom" varchar(20) [not null]
+  "nom" varchar(40) [not null]
   "recette_type" varchar(10) [not null] //plat, dessert, entree
 }
 
@@ -71,7 +71,7 @@ Table "creation_recette" {
 
 Table "ingredient" {
   "id_ingredient" serial [pk, increment]
-  "nom" varchar(20) [not null]
+  "nom" varchar(40) [not null]
   "prix_unitaire" float [not null]
 }
 
