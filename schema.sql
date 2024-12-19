@@ -73,3 +73,21 @@ CREATE TABLE marge (
     id_marge SERIAL PRIMARY KEY,
     valeur FLOAT CHECK (valeur > 0)
 );
+
+
+-- CONSTRAINTS
+ALTER TABLE creation_recette
+ADD CONSTRAINT fk_id_ingredient FOREIGN KEY (id_ingredient)
+REFERENCES ingredient(id_ingredient);
+  
+ALTER TABLE creation_recette
+ADD CONSTRAINT fk_id_recette_2 FOREIGN KEY (id_recette)
+REFERENCES recette(id_recette) ON DELETE CASCADE;
+
+ALTER TABLE subdivision_carte
+ADD CONSTRAINT fk_id_carte FOREIGN KEY (id_carte)
+REFERENCES carte(id_carte);
+  
+ALTER TABLE subdivision_carte
+ADD CONSTRAINT fk_id_recette FOREIGN KEY (id_recette)
+REFERENCES recette(id_recette) ON DELETE CASCADE;
