@@ -75,7 +75,7 @@ CREATE TABLE marge (
 );
 
 
--- CONSTRAINTS
+-- CONSTRAINT
 ALTER TABLE creation_recette
 ADD CONSTRAINT fk_id_ingredient FOREIGN KEY (id_ingredient)
 REFERENCES ingredient(id_ingredient);
@@ -91,3 +91,23 @@ REFERENCES carte(id_carte);
 ALTER TABLE subdivision_carte
 ADD CONSTRAINT fk_id_recette FOREIGN KEY (id_recette)
 REFERENCES recette(id_recette) ON DELETE CASCADE;
+
+ALTER TABLE table_a_manger
+ADD CONSTRAINT fk_id_salle FOREIGN KEY (id_salle)
+REFERENCES salle(id_salle);
+
+ALTER TABLE table_res
+ADD CONSTRAINT fk_id_table FOREIGN KEY (id_table)
+REFERENCES table_a_manger(id_table);
+
+ALTER TABLE table_res
+ADD CONSTRAINT fk_id_res FOREIGN KEY (id_reservation)
+REFERENCES reservation(id_reservation);
+
+ALTER TABLE prend_menu
+ADD CONSTRAINT fk_id_res_2 FOREIGN KEY (id_res)
+REFERENCES reservation(id_reservation);
+
+ALTER TABLE prend_menu
+ADD CONSTRAINT fk_id_res_3 FOREIGN KEY (id_res)
+REFERENCES reservation(id_reservation);
