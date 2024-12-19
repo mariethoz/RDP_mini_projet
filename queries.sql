@@ -4,7 +4,7 @@ FROM table_a_manger AS tab
 LEFT JOIN table_res AS tabler ON tab.id_table = tabler.id_table
 LEFT JOIN reservation AS resa ON tabler.id_reservation = resa.id_reservation
 WHERE tabler.id_table IS NULL
-   OR (resa.res_date < --CURRENT_TIMESTAMP
+   OR (resa.res_date < CURRENT_TIMESTAMP
        OR resa.res_date > CURRENT_TIMESTAMP + INTERVAL '3 hours');
 
 -- Query pour controller a une date spécific
