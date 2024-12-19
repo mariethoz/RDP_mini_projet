@@ -6,6 +6,7 @@ CODE DIAGRAM : (https://dbdiagram.io)
 
 
 
+
 Table "salle" {
   "salle_id" serial [pk, increment]
   "nom" varchar(10) [not null]
@@ -65,8 +66,8 @@ Table "creation_recette" {
   "id_creation_recette" serial [pk, increment]
   "id_recette" int
   "id_ingredient" int 
-  "quantite" float
-  "ordre" int
+  "quantite" float [not null]
+  "ordre" int [not null]
 }
 
 Table "ingredient" {
@@ -77,7 +78,7 @@ Table "ingredient" {
 
 Table "marge" {
   "id_marge" serial [pk, increment]
-  "valeur" float
+  "valeur" float [not null]
 }
 
 
