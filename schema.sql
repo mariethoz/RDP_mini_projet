@@ -66,7 +66,7 @@ CREATE TABLE creation_recette (
 CREATE TABLE ingredient (
     id_ingredient SERIAL PRIMARY KEY,
     nom VARCHAR(40) NOT NULL,
-    prix_unitaire FLOAT
+    prix_unitaire FLOAT CHECK (prix_unitaire > 0)
 );
 
 CREATE TABLE marge (
