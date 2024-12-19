@@ -36,7 +36,7 @@ Non, on les génèrera avec GPT et des recherches internet.
 
 
 ### Schéma RDB
-![Schema 2 0](https://github.com/user-attachments/assets/98550fc9-506b-482e-aaaa-3992761a7ebc)
+![Schema 2 0](https://github.com/user-attachments/assets/ae571944-ca0b-4dee-b630-c754225b88a6)
 
 
 
