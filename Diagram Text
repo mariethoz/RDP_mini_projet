@@ -13,26 +13,26 @@ Table "salle" {
 }
 
 Table "table_a_manger" {
-  "table_id" serial [pk, increment]
-  "salle_id" int 
+  "id_table" serial [pk, increment]
+  "id_salle" int 
   "taille" int [not null]
 }
 
 Table "table_res" {
   "id_table_res" serial [pk, increment]
-  "table_id" int
+  "id_table" int
   "res_id" int
 }
 
 Table "reservation" {
-  "res_id" serial [pk, increment]
-  "client_id" int
+  "id_reservation" serial [pk, increment]
+  "id_client" int
   "res_date" datetime [not null]
   "nb_personne" int [not null]
 }
 
 Table "client" {
-  "client_id" serial [pk, increment]
+  "id_client" serial [pk, increment]
   "nom" varchar(20) [not null]
   "prenom" varchar(20) [not null]
 }
@@ -45,7 +45,7 @@ Table "carte" {
 }
 
 Table "recette" {
-  "id" serial [pk, increment]
+  "id_recette" serial [pk, increment]
   "nom" varchar(40) [not null]
   "recette_type" varchar(10) [not null] //plat, dessert, entree
 }
@@ -82,24 +82,24 @@ Table "marge" {
 }
 
 
-Ref: "table_res"."table_id" < "table_a_manger"."table_id"
+Ref: "table_res"."id_table" < "table_a_manger"."id_table"
 
-Ref: "table_res"."res_id" < "reservation"."res_id"
+Ref: "table_res"."res_id" < "reservation"."id_reservation"
 
-Ref: "table_a_manger"."salle_id" < "salle"."salle_id"
+Ref: "table_a_manger"."id_salle" < "salle"."salle_id"
 
-Ref: "client"."client_id" < "reservation"."client_id"
+Ref: "client"."id_client" < "reservation"."id_client"
 
 Ref: "carte"."id_carte" < "subdivision_carte"."id_carte"
 
-Ref: "subdivision_carte"."id_recette" < "recette"."id"
+Ref: "subdivision_carte"."id_recette" < "recette"."id_recette"
 
 Ref: "prend_menu"."id_menu" < "carte"."id_carte"
 
 Ref: "carte"."id_marge" < "marge"."id_marge"
 
-Ref: "creation_recette"."id_recette" < "recette"."id"
+Ref: "creation_recette"."id_recette" < "recette"."id_recette"
 
 Ref: "creation_recette"."id_ingredient" < "ingredient"."id_ingredient"
 
-Ref: "reservation"."res_id" < "prend_menu"."id_res"
+Ref: "reservation"."id_reservation" < "prend_menu"."id_res"
