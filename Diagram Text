@@ -7,8 +7,9 @@ CODE DIAGRAM : (https://dbdiagram.io)
 
 
 
+
 Table "salle" {
-  "salle_id" serial [pk, increment]
+  "id_salle" serial [pk, increment]
   "nom" varchar(10) [not null]
 }
 
@@ -21,7 +22,7 @@ Table "table_a_manger" {
 Table "table_res" {
   "id_table_res" serial [pk, increment]
   "id_table" int
-  "res_id" int
+  "id_reservation" int
 }
 
 Table "reservation" {
@@ -84,9 +85,9 @@ Table "marge" {
 
 Ref: "table_res"."id_table" < "table_a_manger"."id_table"
 
-Ref: "table_res"."res_id" < "reservation"."id_reservation"
+Ref: "table_res"."id_reservation" < "reservation"."id_reservation"
 
-Ref: "table_a_manger"."id_salle" < "salle"."salle_id"
+Ref: "table_a_manger"."id_salle" < "salle"."id_salle"
 
 Ref: "client"."id_client" < "reservation"."id_client"
 
