@@ -20,7 +20,7 @@ CREATE TABLE table_res (
 CREATE TABLE reservation (
     id_reservation SERIAL PRIMARY KEY,
     id_client INT,
-    res_date DATE NOT NULL,
+    res_date TIMESTAMP NOT NULL,
     nb_personne INT CHECK (nb_personne > 0)
 );
 
@@ -51,8 +51,14 @@ CREATE TABLE subdivision_carte (
 
 CREATE TABLE prend_menu (
     id_prend_menu SERIAL PRIMARY KEY,
-    id_table INT,
+    id_res INT,
     id_carte INT
+);
+
+CREATE TABLE ingredient (
+    id_ingredient SERIAL PRIMARY KEY,
+    nom VARCHAR(40) NOT NULL,
+    prix_unitaire FLOAT CHECK (prix_unitaire > 0)
 );
 
 CREATE TABLE creation_recette (
@@ -61,12 +67,6 @@ CREATE TABLE creation_recette (
     id_ingredient INT,
     quantite FLOAT CHECK (quantite > 0),
     ordre INT CHECK (ordre > 0)
-);
-
-CREATE TABLE ingredient (
-    id_ingredient SERIAL PRIMARY KEY,
-    nom VARCHAR(40) NOT NULL,
-    prix_unitaire FLOAT CHECK (prix_unitaire > 0)
 );
 
 CREATE TABLE marge (
