@@ -103,11 +103,3 @@ REFERENCES table_a_manger(id_table);
 ALTER TABLE table_res
 ADD CONSTRAINT fk_id_res FOREIGN KEY (id_reservation)
 REFERENCES reservation(id_reservation);
-
-ALTER TABLE prend_menu
-ADD CONSTRAINT fk_id_res_2 FOREIGN KEY (id_res)
-REFERENCES reservation(id_reservation);
-
-ALTER TABLE prend_menu
-ADD CONSTRAINT fk_id_res_3 FOREIGN KEY (id_res)
-REFERENCES reservation(id_reservation);
