@@ -1,5 +1,5 @@
 -- Query pour affiché les tables libre
-SELECT tab.id_table AS 'Table #', tab.id_salle AS 'Salle #', tab.taille AS '# Placesa'
+SELECT tab.id_table AS "Table #", tab.id_salle AS "Salle #", tab.taille AS "# Places"
 FROM table_a_manger AS tab
 LEFT JOIN table_res AS tabler ON tab.id_table = tabler.id_table
 LEFT JOIN reservation AS resa ON tabler.id_reservation = resa.id_reservation
@@ -8,7 +8,7 @@ WHERE tabler.id_table IS NULL
        OR resa.res_date > CURRENT_TIMESTAMP + INTERVAL '3 hours');
 
 -- Query pour controller a une date spécific
-SELECT tab.id_table AS 'Table #', tab.id_salle AS 'Salle #', tab.taille AS '# Placesa'
+SELECT tab.id_table AS "Table #", tab.id_salle AS "Salle #", tab.taille AS "# Places"
 FROM table_a_manger AS tab
 LEFT JOIN table_res AS tabler ON tab.id_table = tabler.id_table
 LEFT JOIN reservation AS resa ON tabler.id_reservation = resa.id_reservation
@@ -18,7 +18,7 @@ WHERE tabler.id_table IS NULL
 
 -- Query pour affiché la carte du restaurant
 SELECT c.nom AS "Référence", r.nom AS "Nom", r.recette_type AS "Type",
-SUM(i.prix_unitaire * cr.quantite/100 * (1 + m.valeur/100)) AS "prix"
+ROUND(CAST(SUM(i.prix_unitaire * cr.quantite/100 * (1 + m.valeur/100)) AS NUMERIC), 2) || ' CHF' AS "prix"
 FROM carte AS c
 JOIN subdivision_carte AS sc ON c.id_carte = sc.id_carte
 JOIN recette AS r ON sc.id_recette = r.id_recette
@@ -35,11 +35,11 @@ ORDER BY c.nom DESC,
     ELSE 4
 	END;
 
--- Query addition pour un réservation
-SELECT SUM(i.prix_unitaire * cr.quantite/100 * (1 + m.valeur/100)) AS "Total"
+-- Query addition pour une réservation
+SELECT ROUND(CAST(SUM(i.prix_unitaire * cr.quantite / 100 * (1 + m.valeur / 100)) AS NUMERIC), 2) || ' CHF' AS "Total"
 FROM client AS cl
 JOIN reservation AS rv ON cl.id_client = rv.id_client
-JOIN prend_menu AS pm ON rv.id_reservation = pm.id_reservation
+JOIN prend_menu AS pm ON rv.id_reservation = pm.id_res
 JOIN carte AS c ON pm.id_carte = c.id_carte
 JOIN marge AS m ON c.id_marge = m.id_marge
 JOIN subdivision_carte AS sc ON c.id_carte = sc.id_carte
