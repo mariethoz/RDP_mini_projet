@@ -57,8 +57,52 @@ INSERT INTO carte (nom, id_marge, valide) VALUES
 ('Cassoulet', 30, FALSE), ('Tarte Tatin', 31, TRUE), ('Crème brûlée', 32, TRUE), 
 ('Mousse au chocolat', 33, TRUE), ('Île flottante', 34, TRUE), ('Profiteroles', 35, TRUE);
 
+-- ingredient
+INSERT INTO ingredient (nom, prix_unitaire) VALUES 
+('Laitue', 1.5), ('Parmesan', 2.0), ('Croutons', 1.0), 
+('Boeuf', 10.0), ('Vin rouge', 5.0), ('Champignons', 3.0), 
+('Pommes', 2.0), ('Sucre', 1.0), ('Beurre', 1.5), 
+('Oignons', 1.0), ('Bouillon', 2.0), ('Fromage', 2.5), 
+('Poulet', 8.0), ('Vin blanc', 5.0), ('Lardons', 3.0), 
+('Crème', 2.0), ('Vanille', 3.0), ('Sucre roux', 1.5), 
+('Pâte brisée', 2.0), ('Lardons', 3.0), ('Oeufs', 1.5), 
+('Aubergines', 2.0), ('Courgettes', 2.0), ('Tomates', 1.5), 
+('Chocolat', 3.0), ('Crème', 2.0), ('Sucre', 1.0), 
+('Thon', 5.0), ('Haricots verts', 2.0), ('Olives', 1.5), 
+('Poulet', 8.0), ('Poivrons', 2.0), ('Tomates', 1.5), 
+('Oeufs', 1.5), ('Lait', 1.0), ('Sucre', 1.0), 
+('Foie gras', 15.0), ('Gelée', 2.0), ('Pain d_épices', 3.0), 
+('Haricots blancs', 2.0), ('Saucisses', 4.0), ('Confit de canard', 10.0), 
+('Choux', 1.5), ('Crème pâtissière', 2.0), ('Chocolat', 3.0), 
+('Poisson', 10.0), ('Bouillon', 2.0), ('Crème', 2.0), 
+('Canard', 12.0), ('Miel', 3.0), ('Épices', 2.0), 
+('Citron', 1.0), ('Sucre', 1.0), ('Beurre', 1.5);
+
+-- recette
+INSERT INTO recette (nom, recette_type) VALUES 
+('Salade César', 'Entrée'), 
+('Boeuf Bourguignon', 'Plat'), 
+('Tarte Tatin', 'Dessert'), 
+('Soupe à l_oignon', 'Entrée'), 
+('Coq au vin', 'Plat'), 
+('Crème brûlée', 'Dessert'), 
+('Quiche Lorraine', 'Entrée'), 
+('Ratatouille', 'Plat'), 
+('Mousse au chocolat', 'Dessert'), 
+('Salade Niçoise', 'Entrée'), 
+('Poulet Basquaise', 'Plat'), 
+('Île flottante', 'Dessert'), 
+('Terrine de foie gras', 'Entrée'), 
+('Cassoulet', 'Plat'), 
+('Profiteroles', 'Dessert'), 
+('Soupe de poisson', 'Entrée'), 
+('Magret de canard', 'Plat'), 
+('Tarte au citron', 'Dessert'), 
+('Salade de chèvre chaud', 'Entrée'), 
+('Blanquette de veau', 'Plat');
+
 -- prend_menu
-INSERT INTO prend_menu (id_table, id_carte) VALUES 
+INSERT INTO prend_menu (id_res, id_carte) VALUES 
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), 
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), 
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), 
@@ -84,27 +128,6 @@ INSERT INTO creation_recette (id_recette, id_ingredient, quantite, ordre) VALUES
 (16, 46, 100, 1), (16, 47, 50, 2), (16, 48, 30, 3), 
 (17, 49, 200, 1), (17, 50, 100, 2), (17, 51, 50, 3), 
 (18, 52, 150, 1), (18, 53, 100, 2), (18, 54, 50, 3);
-
--- ingredient
-INSERT INTO ingredient (nom, prix_unitaire) VALUES 
-('Laitue', 1.5), ('Parmesan', 2.0), ('Croutons', 1.0), 
-('Boeuf', 10.0), ('Vin rouge', 5.0), ('Champignons', 3.0), 
-('Pommes', 2.0), ('Sucre', 1.0), ('Beurre', 1.5), 
-('Oignons', 1.0), ('Bouillon', 2.0), ('Fromage', 2.5), 
-('Poulet', 8.0), ('Vin blanc', 5.0), ('Lardons', 3.0), 
-('Crème', 2.0), ('Vanille', 3.0), ('Sucre roux', 1.5), 
-('Pâte brisée', 2.0), ('Lardons', 3.0), ('Oeufs', 1.5), 
-('Aubergines', 2.0), ('Courgettes', 2.0), ('Tomates', 1.5), 
-('Chocolat', 3.0), ('Crème', 2.0), ('Sucre', 1.0), 
-('Thon', 5.0), ('Haricots verts', 2.0), ('Olives', 1.5), 
-('Poulet', 8.0), ('Poivrons', 2.0), ('Tomates', 1.5), 
-('Oeufs', 1.5), ('Lait', 1.0), ('Sucre', 1.0), 
-('Foie gras', 15.0), ('Gelée', 2.0), ('Pain d_épices', 3.0), 
-('Haricots blancs', 2.0), ('Saucisses', 4.0), ('Confit de canard', 10.0), 
-('Choux', 1.5), ('Crème pâtissière', 2.0), ('Chocolat', 3.0), 
-('Poisson', 10.0), ('Bouillon', 2.0), ('Crème', 2.0), 
-('Canard', 12.0), ('Miel', 3.0), ('Épices', 2.0), 
-('Citron', 1.0), ('Sucre', 1.0), ('Beurre', 1.5);
 
 -- marge
 INSERT INTO marge (valeur) VALUES 
@@ -144,26 +167,3 @@ INSERT INTO subdivision_carte (id_recette, id_carte) VALUES
 (9, 33),  -- Mousse au chocolat
 (12, 34),  -- Île flottante
 (15, 35);  -- Profiteroles
-
-
-INSERT INTO recette (nom, recette_type) VALUES 
-('Salade César', 'Entrée'), 
-('Boeuf Bourguignon', 'Plat'), 
-('Tarte Tatin', 'Dessert'), 
-('Soupe à l_oignon', 'Entrée'), 
-('Coq au vin', 'Plat'), 
-('Crème brûlée', 'Dessert'), 
-('Quiche Lorraine', 'Entrée'), 
-('Ratatouille', 'Plat'), 
-('Mousse au chocolat', 'Dessert'), 
-('Salade Niçoise', 'Entrée'), 
-('Poulet Basquaise', 'Plat'), 
-('Île flottante', 'Dessert'), 
-('Terrine de foie gras', 'Entrée'), 
-('Cassoulet', 'Plat'), 
-('Profiteroles', 'Dessert'), 
-('Soupe de poisson', 'Entrée'), 
-('Magret de canard', 'Plat'), 
-('Tarte au citron', 'Dessert'), 
-('Salade de chèvre chaud', 'Entrée'), 
-('Blanquette de veau', 'Plat');
