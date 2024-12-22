@@ -1,0 +1,43 @@
+-- 1ère requête :--------------------------------------------------------
+
+-- Index pour améliorer la jointure sur id_table
+CREATE INDEX idx_table_res_id_table ON table_res(id_table);
+
+-- Index pour améliorer la clause WHERE sur res_date
+CREATE INDEX idx_reservation_res_date ON reservation(res_date);
+
+-- 2ème requête : -------------------------------------------------------
+
+-- Aucun nouvel index requis, réutilisation des précédents.
+
+-- 3ème requête :-------------------------------------------------------
+
+-- Index pour améliorer la clause GROUP BY sur c.nom
+CREATE INDEX idx_carte_nom ON carte(nom);
+
+-- Index pour améliorer la clause GROUP BY sur r.nom et recette_type
+CREATE INDEX idx_recette_nom_type ON recette(nom, recette_type);
+
+
+-- 4ème requête :---------------------------------------------------------
+
+-- Index pour améliorer la jointure sur id_client
+CREATE INDEX idx_reservation_id_client ON reservation(id_client);
+
+-- Index pour améliorer la jointure sur id_res
+CREATE INDEX idx_prend_menu_id_res ON prend_menu(id_res);
+
+-- Index pour améliorer la jointure sur id_carte
+CREATE INDEX idx_prend_menu_id_carte ON prend_menu(id_carte);
+
+-- Index pour améliorer la jointure sur id_recette
+CREATE INDEX idx_subdivision_carte_id_recette ON subdivision_carte(id_recette);
+
+-- Index pour améliorer la jointure sur id_ingredient
+CREATE INDEX idx_creation_recette_id_ingredient ON creation_recette(id_ingredient);
+
+-- Index pour améliorer la jointure sur id_marge
+CREATE INDEX idx_carte_id_marge ON carte(id_marge);
+
+-- Index pour améliorer les recherches sur nom et prenom (élimination du doublon)
+CREATE INDEX idx_client_nom_prenom ON client(nom, prenom);
